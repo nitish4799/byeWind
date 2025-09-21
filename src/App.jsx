@@ -61,7 +61,7 @@ function App() {
                 rightSidebarOpen={rightSidebarOpen}
               />
 
-              <main className="flex-1 p-6 bg-gray-50 dark:bg-gray-900">
+              <main className="flex-1 p-6 bg-gray-50 dark:bg-black">
                 <TabNavigation 
                   activeTab={activeTab} 
                   onTabChange={(tab) => dispatch(setActiveTab(tab))} 
@@ -72,12 +72,13 @@ function App() {
 
             {/* Desktop Right Column - Conditional visibility based on active tab */}
             {shouldShowDefaultRightSidebar && (
-              <div className="hidden xl:block w-80 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 p-6 space-y-8">
+              <div className="hidden xl:block w-80 bg-white dark:bg-black border-l border-gray-200 dark:border-gray-600 p-6 space-y-8">
                 <Notifications notifications={byewindData.notifications} />
                 <Activities activities={byewindData.activities} />
                 <Contacts contacts={byewindData.contacts} />
               </div>
             )}
+
           </div>
 
           {/* Mobile/Tablet Right Sidebar - Always available when toggled */}

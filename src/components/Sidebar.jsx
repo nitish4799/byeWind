@@ -21,7 +21,7 @@ const Sidebar = ({ activeTab, onTabChange, isOpen, onClose, navigation, user }) 
 
   const dashboardItems = [
     { name: 'Default', icon: BarChart3, key: 'default' },
-    { name: 'eCommerce', icon: ShoppingCart, key: 'eCommerce', active: true },
+    { name: 'eCommerce', icon: ShoppingCart, key: 'eCommerce' },
     { name: 'Projects', icon: Folder, key: 'projects' },
     { name: 'Online Courses', icon: BookOpen, key: 'courses' },
   ];
@@ -53,7 +53,6 @@ const Sidebar = ({ activeTab, onTabChange, isOpen, onClose, navigation, user }) 
     }));
   };
 
-
   return (
     <>
       {/* Overlay for mobile */}
@@ -62,15 +61,15 @@ const Sidebar = ({ activeTab, onTabChange, isOpen, onClose, navigation, user }) 
       {/* Sidebar */}
       <div
         className={clsx(
-          'fixed left-0 top-0 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 z-50 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0',
+          'fixed left-0 top-0 w-64 bg-white dark:bg-black border-r border-gray-200 dark:border-gray-600 z-50 transform transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0',
           isOpen ? 'translate-x-0' : '-translate-x-full',
         )}
       >
         {/* Logo and User Section */}
-        <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="p-6 border-b border-gray-200 dark:border-gray-600">
           <div className="flex items-center space-x-3 mb-6">
-            <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-              <User className="w-4 h-4 text-white" />
+            <div className="w-8 h-8 bg-black dark:bg-white rounded-full flex items-center justify-center">
+              <User className="w-4 h-4 text-white dark:text-black" />
             </div>
             <span className="text-xl font-medium text-gray-900 dark:text-white">ByeWind</span>
           </div>
@@ -102,28 +101,23 @@ const Sidebar = ({ activeTab, onTabChange, isOpen, onClose, navigation, user }) 
             <div className="space-y-1">
               {dashboardItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = item.key === 'eCommerce';
+                const isActive = item.key === activeSection;
 
                 return (
                   <button
                     key={item.key}
                     onClick={() => {
                       setActiveSection(item.key);
-                      if (item.key === 'eCommerce') {
-                        onTabChange && onTabChange('dashboard');
-                      } else {
-                        onTabChange && onTabChange(item.key);
-                      }
                     }}
                     className={clsx(
                       'w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-all duration-200',
                       isActive
-                        ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-700'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700',
+                        ? 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900',
                     )}
                   >
                     <Icon
-                      className={clsx('w-4 h-4', isActive ? 'text-purple-600 dark:text-purple-400' : 'text-gray-500 dark:text-gray-400')}
+                      className={clsx('w-4 h-4', isActive ? 'text-gray-600 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400')}
                     />
                     <span className="text-sm font-medium">{item.name}</span>
                   </button>
@@ -151,7 +145,7 @@ const Sidebar = ({ activeTab, onTabChange, isOpen, onClose, navigation, user }) 
                           onTabChange && onTabChange(item.key);
                         }
                       }}
-                      className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-all duration-200 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-all duration-200 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900"
                     >
                       <Icon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                       <span className="text-sm font-medium flex-1">{item.name}</span>

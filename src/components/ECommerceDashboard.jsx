@@ -9,7 +9,7 @@ const ECommerceDashboard = ({ data }) => {
     const TrendIcon = isPositive ? TrendingUp : TrendingDown;
 
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+      <div className="bg-white dark:bg-black rounded-lg p-6 border border-gray-200 dark:border-gray-600">
         <div className="flex items-center justify-between">
           <div className="flex-1">
             <p className="text-sm text-gray-600 dark:text-gray-400">{title}</p>
@@ -67,7 +67,7 @@ const ECommerceDashboard = ({ data }) => {
         </div>
 
         {/* Right side: Projections vs Actuals Chart */}
-        <div className="xl:col-span-1 bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div className="xl:col-span-1 bg-white dark:bg-black rounded-lg p-6 border border-gray-200 dark:border-gray-600">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Projections vs Actuals</h3>
           </div>
@@ -105,7 +105,7 @@ const ECommerceDashboard = ({ data }) => {
       {/* Second Row: Revenue and Location Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Revenue Chart */}
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div className="lg:col-span-2 bg-white dark:bg-black rounded-lg p-6 border border-gray-200 dark:border-gray-600">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Revenue</h3>
           </div>
@@ -152,13 +152,13 @@ const ECommerceDashboard = ({ data }) => {
         </div>
 
         {/* Revenue by Location */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-black rounded-lg p-6 border border-gray-200 dark:border-gray-600">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Revenue by Location</h3>
           </div>
 
           {/* World Map */}
-          <div className="mb-6 bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+          <div className="mb-6 bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
             <svg className="w-full h-32" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
               {/* World Map Simplified Shapes */}
               {/* North America */}
@@ -250,7 +250,7 @@ const ECommerceDashboard = ({ data }) => {
                     <span className="text-sm font-medium text-gray-900 dark:text-white">{item.location}</span>
                     <span className="text-sm font-semibold text-gray-900 dark:text-white">{item.amount}</span>
                   </div>
-                  <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-1.5">
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5">
                     <div className="bg-blue-400 dark:bg-blue-500 h-1.5 rounded-full transition-all duration-300" style={{ width: `${item.value}%` }}></div>
                   </div>
                 </div>
@@ -263,13 +263,13 @@ const ECommerceDashboard = ({ data }) => {
       {/* Bottom Section: Top Selling Products and Revenue Breakdown */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Top Selling Products */}
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-          <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="lg:col-span-2 bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-gray-600">
+          <div className="p-6 border-b border-gray-200 dark:border-gray-600">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Top Selling Products</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-700">
+              <thead className="bg-gray-50 dark:bg-black">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Price</th>
@@ -277,7 +277,7 @@ const ECommerceDashboard = ({ data }) => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
                 </tr>
               </thead>
-              <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+              <tbody className="bg-white dark:bg-black divide-y divide-gray-200 dark:divide-gray-600">
                 {(
                   data?.topSellingProducts || [
                     {
@@ -312,7 +312,7 @@ const ECommerceDashboard = ({ data }) => {
                     },
                   ]
                 ).map((product, index) => (
-                  <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                  <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-900">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{product.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{product.price}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">{product.quantity}</td>
